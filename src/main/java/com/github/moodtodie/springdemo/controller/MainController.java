@@ -1,4 +1,4 @@
-package com.github.springdemo.controller;
+package com.github.moodtodie.springdemo.controller;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;

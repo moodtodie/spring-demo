@@ -1,4 +1,4 @@
-package com.github.springdemo;
+package com.github.moodtodie.springdemo;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
