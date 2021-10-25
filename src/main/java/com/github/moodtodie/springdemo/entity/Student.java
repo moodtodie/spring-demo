@@ -1,8 +1,8 @@
 package com.github.moodtodie.springdemo.entity;
 
-import lombok.Date;
+import lombok.Data;
 
-@Date
+@Data
 public class Student {
     private String firstName;
     private String secondName;
