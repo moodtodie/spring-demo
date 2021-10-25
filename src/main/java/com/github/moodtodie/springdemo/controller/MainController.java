@@ -23,7 +23,7 @@ public class MainController {
         return "Hello, " + name;
     }
 
-    @PostMapping
+    @PostMapping("/add")
     public String addNewStudent(@RequestBody Student student) {
         return storageService.add(student) ? "New student has been added." : "Student ID already exists";
     }
