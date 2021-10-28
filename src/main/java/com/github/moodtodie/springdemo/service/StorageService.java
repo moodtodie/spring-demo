@@ -2,26 +2,28 @@ package com.github.moodtodie.springdemo.service;
 
 
 import com.github.moodtodie.springdemo.entity.Student;
-import org.springframework.stereotype.Component;
-import java.util.ArrayList;
+import com.github.moodtodie.springdemo.repository.StudentRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
 import java.util.List;
 
-@Component
+@Service
 public class StorageService {
-    private List<Student> storage = new ArrayList<Student>();
+
+    @Autowired
+    private StudentRepository studentRepository;
 
     public List<Student> getStorage() {
-        return storage;
+        return (List<Student>) studentRepository.findAll();
     }
 
     public boolean add(Student student) {
-
-        for (int i = 0; i < storage.size(); ++i) {
-            if (student.getStudentId() == storage.get(i).getStudentId()) {
-                return false;
-            }
+        if (studentRepository.existsByStudentId(student.getStudentId())) {
+            return false;
+        } else {
+            studentRepository.save(student);
+            return true;
         }
-        storage.add(student);
-        return true;
     }
 }
